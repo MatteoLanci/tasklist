@@ -2,7 +2,7 @@ import "./App.css";
 import { useSelector } from "react-redux";
 
 import Navbar from "./components/NavigationBar/Navigation";
-import Hero from "./components/Hero/Hero";
+import Tasklist from "./components/TaskList/Tasklist";
 
 function App() {
   const theme = useSelector((state) => state.theme);
@@ -11,9 +11,7 @@ function App() {
   return (
     <section className={`mainWrapper ${theme === "light" ? null : "darkMode"}`}>
       <Navbar />
-      <div className={`${initialize === "false" ? null : "d-none"}`}>
-        <Hero />
-      </div>
+      <Tasklist />
     </section>
   );
 }

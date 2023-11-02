@@ -1,0 +1,13 @@
+.tasklistMainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.completed {
+  text-decoration: line-through !important;
+  background: #61e294 !important;
+}

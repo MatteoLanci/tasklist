@@ -20,7 +20,7 @@ const Navigation = () => {
 
       {mobileView && <AiOutlineMenu />}
 
-      <Button onClick={handleToggleTheme}>click me</Button>
+      <Button onClick={handleToggleTheme}>theme</Button>
     </section>
   );
 };
