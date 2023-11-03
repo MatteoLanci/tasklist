@@ -33,8 +33,6 @@ const Navigation = () => {
         <img src={Sun} alt="Sun" className="sunSvg" />
         <img src={Moon} alt="Moon" className="moonSvg" />
       </label>
-
-      {/* <Button onClick={handleToggleTheme}>theme</Button> */}
     </section>
   );
 };

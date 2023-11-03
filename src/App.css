@@ -1,6 +1,7 @@
 .mainWrapper {
   min-height: 100vh;
   position: relative;
+  background: linear-gradient(120deg, #f5ebe0, #fefcf3);
 }
 
 .rocketAnimation {

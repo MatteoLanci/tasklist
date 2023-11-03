@@ -6,7 +6,6 @@ import Tasklist from "./components/TaskList/Tasklist";
 
 function App() {
   const theme = useSelector((state) => state.theme);
-  const initialize = useSelector((state) => state.initialize);
 
   return (
     <section className={`mainWrapper ${theme === "light" ? null : "darkMode"}`}>

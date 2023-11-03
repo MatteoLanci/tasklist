@@ -8,8 +8,9 @@ import { addTask, removeTask, toggleTask } from "../../state/Reducers/tasklistSl
 
 import { Button, ListGroup, Form } from "react-bootstrap";
 
-import { FaTrashAlt } from "react-icons/fa";
 import { MdOutlineDone } from "react-icons/md";
+import { PiTrashThin } from "react-icons/pi";
+import { MdFormatListBulletedAdd } from "react-icons/md";
 
 const Tasklist = () => {
   const tasks = useSelector((state) => state.tasks);
@@ -39,7 +40,9 @@ const Tasklist = () => {
     <section className="tasklistMainWrapper">
       <h2>Tasklist</h2>
 
-      <ListGroup className="tasksWrapper">
+      <ListGroup className={theme === "light" ? "tasksWrapper" : "tasksWrapperDark"}>
+        {tasks.length === 0 && <div>nothing here</div>}
+
         {tasks.map((task) => (
           <ListGroup.Item
             key={task.id}
@@ -75,12 +78,8 @@ const Tasklist = () => {
                 </>
               )}
 
-              <Button
-                variant="danger"
-                onClick={() => handleRemoveTask(task)}
-                className="d-flex align-items-center justify-content-center p-2"
-              >
-                <FaTrashAlt />
+              <Button onClick={() => handleRemoveTask(task)} className="taskDeleteBtn">
+                <PiTrashThin />
               </Button>
             </div>
           </ListGroup.Item>
@@ -90,13 +89,13 @@ const Tasklist = () => {
       <div className="d-flex justify-content-center align-items-center gap-1">
         <input
           type="text"
-          placeholder="Type Here..."
+          placeholder="Add a task..."
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          className="taskInput"
+          className={theme === "light" ? "taskInput" : "taskInputDark"}
         />
         <Button onClick={handleAddTask} className="newTaskBtn">
-          add
+          <MdFormatListBulletedAdd />
         </Button>
       </div>
     </section>
