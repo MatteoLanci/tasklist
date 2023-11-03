@@ -7,7 +7,64 @@
   margin-bottom: 4rem;
 }
 
+.tasksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.taskWrapper {
+  padding: 0.25rem 0.5rem !important;
+  background: #d7d6d6 !important;
+  border: none !important;
+  box-shadow: 0 0 5px #bebebe !important;
+  width: 300px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px !important;
+}
+
+.taskWrapperDark {
+  padding: 0.25rem 0.5rem !important;
+  background: #4e4e4e !important;
+  border: none !important;
+  box-shadow: 0 0 10px #3a3a3a;
+  width: 300px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px !important;
+}
+
 .completed {
   text-decoration: line-through !important;
   background: #61e294 !important;
+}
+
+.taskCompletedIcon {
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 1.5rem;
+  background: #f1f1f1;
+  border: 1px solid #10af50;
+  cursor: pointer;
+}
+
+#completedTooltip {
+  margin: 0;
+  font-size: 0.7rem !important;
+  border-radius: 10px;
+}
+
+.taskInput {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.newTaskBtn {
+  padding: 0.25rem 0.5rem !important;
 }

@@ -7,6 +7,9 @@ import { toggleTheme } from "../../state/Reducers/themeSlice";
 import { Button } from "react-bootstrap";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
+import Sun from "../../assets/svg/sun.svg";
+import Moon from "../../assets/svg/moon.svg";
+
 const Navigation = () => {
   const dispatch = useDispatch();
   const handleToggleTheme = () => {
@@ -20,7 +23,18 @@ const Navigation = () => {
 
       {mobileView && <AiOutlineMenu />}
 
-      <Button onClick={handleToggleTheme}>theme</Button>
+      <input
+        type="checkbox"
+        id="themeToggle"
+        className="themeToggleCheckbox"
+        onClick={handleToggleTheme}
+      />
+      <label for="themeToggle" className="themeToggleLabel">
+        <img src={Sun} alt="Sun" className="sunSvg" />
+        <img src={Moon} alt="Moon" className="moonSvg" />
+      </label>
+
+      {/* <Button onClick={handleToggleTheme}>theme</Button> */}
     </section>
   );
 };

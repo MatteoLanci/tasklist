@@ -5,3 +5,69 @@
   height: 70px;
   margin-bottom: 5rem;
 }
+
+.themeToggleLabel {
+  width: 150px;
+  height: 60px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0 5px 10px #292929, inset 0 -5px 15px #7c7c7c;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.themeToggleLabel:after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 180px;
+  box-shadow: 0 5px 10px #1c1c1c;
+  transition: 0.3s;
+}
+
+.themeToggleCheckbox {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.themeToggleCheckbox:checked + .themeToggleLabel {
+  background: #242424;
+}
+.themeToggleCheckbox:checked + .themeToggleLabel:after {
+  left: 145px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.themeToggleLabel:active:after {
+  width: 70px;
+}
+
+.themeToggleLabel img {
+  position: absolute;
+  width: 40px;
+  top: 10px;
+  z-index: 2;
+}
+.themeToggleLabel .sunSvg {
+  left: 9px !important;
+  fill: #fff !important;
+  transition: 0.3s;
+}
+.themeToggleLabel .moonSvg {
+  left: 100px !important;
+  fill: #777;
+  transition: 0.3s;
+}
+
+.themeToggleCheckbox + .themeToggleLabel .sunSvg {
+  fill: #777;
+}
+.themeToggleCheckbox + .themeToggleLabel .moonSvg {
+  fill: #fff;
+}
