@@ -75,7 +75,8 @@
 
 .completed {
   text-decoration: line-through !important;
-  background: #61e294 !important;
+  background: #d3e4cd !important;
+  color: #1e2124 !important;
 }
 
 .taskCompletedIcon {
@@ -83,7 +84,6 @@
   padding: 2px;
   font-size: 1.5rem;
   background: #f1f1f1;
-  border: 1px solid #10af50;
   cursor: pointer;
 }
 
