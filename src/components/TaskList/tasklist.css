@@ -98,18 +98,34 @@
   color: #1e2124 !important;
 }
 
+.taskCreatedIcon {
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 1.3rem;
+  background: #5273ac;
+  cursor: pointer;
+  color: #f1f1f1;
+}
+#createdTooltip {
+  margin: 0;
+  font-size: 0.7rem !important;
+  border-radius: 10px;
+  z-index: 2;
+}
+
 .taskCompletedIcon {
   border-radius: 50%;
   padding: 2px;
   font-size: 1.5rem;
   background: #f1f1f1;
   cursor: pointer;
+  margin-right: 1rem;
 }
-
 #completedTooltip {
   margin: 0;
   font-size: 0.7rem !important;
   border-radius: 10px;
+  z-index: 2;
 }
 
 .taskDeleteBtn {
@@ -122,6 +138,7 @@
   border: none !important;
   color: #000000 !important;
   transition: 0.3s;
+  width: 40px;
 }
 .taskDeleteBtn:hover {
   background: #ebe1d5 !important;

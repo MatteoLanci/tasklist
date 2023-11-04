@@ -2,18 +2,39 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const taskSlice = createSlice({
   name: "tasks",
-  initialState: [],
+  initialState: JSON.parse(localStorage.getItem("tasks")) || [],
   reducers: {
     addTask: (state, action) => {
-      state.push(action.payload);
+      const newTask = {
+        id: Date.now(),
+        text: action.payload.text,
+        completed: false,
+        createdAt: new Date().toLocaleString(),
+        completedAt: null,
+      };
+      state.push(newTask);
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
+
     removeTask: (state, action) => {
-      return state.filter((task) => task.id !== action.payload.id);
+      const updatedState = state.filter((task) => task.id !== action.payload.id);
+      localStorage.setItem("tasks", JSON.stringify(updatedState));
+      return updatedState;
     },
+
     toggleTask: (state, action) => {
       const taskToToggle = state.find((task) => task.id === action.payload.id);
+
       if (taskToToggle) {
         taskToToggle.completed = !taskToToggle.completed;
+
+        if (taskToToggle.completed) {
+          taskToToggle.completedAt = new Date().toLocaleString();
+        } else {
+          taskToToggle.completedAt = null;
+        }
+
+        localStorage.setItem("tasks", JSON.stringify(state));
       }
     },
   },

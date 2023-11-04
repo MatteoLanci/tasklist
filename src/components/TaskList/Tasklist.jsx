@@ -3,15 +3,14 @@ import "./tasklist.css";
 
 import { Tooltip } from "react-tooltip";
 
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTask, removeTask, toggleTask } from "../../state/Reducers/tasklistSlice";
 
 import { Button, ListGroup, Form, Container } from "react-bootstrap";
 
-import { MdOutlineDone } from "react-icons/md";
+import { MdOutlineDone, MdOutlineInfo } from "react-icons/md";
 import { PiTrashThin } from "react-icons/pi";
 import { MdFormatListBulletedAdd } from "react-icons/md";
-import TasklistLogo from "../../assets/svg/tasklist.svg";
 
 const Tasklist = () => {
   const tasks = useSelector((state) => state.tasks);
@@ -22,7 +21,7 @@ const Tasklist = () => {
 
   const handleAddTask = () => {
     if (newTask) {
-      dispatch(addTask({ id: Date.now(), text: newTask, completed: false }));
+      dispatch(addTask({ text: newTask }));
       setNewTask("");
     }
   };
@@ -34,8 +33,6 @@ const Tasklist = () => {
   const handleToggleTask = (task) => {
     dispatch(toggleTask({ id: task.id }));
   };
-
-  const currentTime = new Date();
 
   return (
     <section className="tasklistMainWrapper">
@@ -67,11 +64,11 @@ const Tasklist = () => {
                 {task.text}
               </div>
 
-              <div className="d-flex justify-content-center align-items-center gap-4">
+              <div className="d-flex justify-content-center align-items-center gap-3">
                 {task.completed && (
                   <>
                     <em
-                      data-tooltip-content={`Completed on: ${currentTime}`}
+                      data-tooltip-content={`Completed at: ${task.completedAt}`}
                       data-tooltip-id="completedTooltip"
                       data-tooltip-place="top"
                       className="taskTooltip"
@@ -82,6 +79,17 @@ const Tasklist = () => {
                     <Tooltip id="completedTooltip" />
                   </>
                 )}
+
+                <em
+                  data-tooltip-content={`
+                  You created this task on: ${task.createdAt}`}
+                  data-tooltip-id="createdTooltip"
+                  data-tooltip-place="top"
+                  className="taskCreateTooltip"
+                >
+                  <MdOutlineInfo className="taskCreatedIcon" />
+                </em>
+                <Tooltip id="createdTooltip" />
 
                 <Button onClick={() => handleRemoveTask(task)} className="taskDeleteBtn">
                   <PiTrashThin />
