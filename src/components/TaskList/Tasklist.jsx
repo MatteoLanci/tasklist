@@ -6,7 +6,7 @@ import { Tooltip } from "react-tooltip";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, removeTask, toggleTask } from "../../state/Reducers/tasklistSlice";
 
-import { Button, ListGroup, Form, Container } from "react-bootstrap";
+import { Button, ListGroup, Form, Container, Collapse } from "react-bootstrap";
 
 import { MdOutlineDone, MdOutlineInfo } from "react-icons/md";
 import { PiTrashThin } from "react-icons/pi";
@@ -18,6 +18,7 @@ const Tasklist = () => {
   const dispatch = useDispatch();
 
   const [newTask, setNewTask] = useState("");
+  const [openTasks, setOpenTasks] = useState({});
 
   const handleAddTask = () => {
     if (newTask) {
@@ -34,6 +35,13 @@ const Tasklist = () => {
     dispatch(toggleTask({ id: task.id }));
   };
 
+  const handleTaskClick = (taskId) => {
+    setOpenTasks((prevState) => ({
+      ...prevState,
+      [taskId]: !prevState[taskId],
+    }));
+  };
+
   return (
     <section className="tasklistMainWrapper">
       <h1>TaskList</h1>
@@ -46,56 +54,70 @@ const Tasklist = () => {
           {tasks.length === 0 && <div>Nothing Here Yet</div>}
 
           {tasks.map((task) => (
-            <ListGroup.Item
-              key={task.id}
-              className={`${theme === "light" ? "taskWrapper" : "taskWrapperDark"} ${
-                task.completed ? "completed" : null
-              }`}
+            <section
+              style={{ marginBottom: "1rem" }}
+              className="w-100 d-flex justify-content-center align-items-center flex-column"
             >
-              <div>
-                <Form.Check
-                  type="checkbox"
-                  inline
-                  checked={task.completed}
-                  onChange={() => handleToggleTask(task)}
-                  className="taskCheckbox"
-                />
+              <ListGroup.Item
+                key={task.id}
+                className={`${theme === "light" ? "taskWrapper" : "taskWrapperDark"} ${
+                  task.completed ? "completed" : null
+                }`}
+              >
+                <div className="d-flex justify-content-start align-items-center gap-2">
+                  <Form.Check
+                    type="checkbox"
+                    inline
+                    checked={task.completed}
+                    onChange={() => handleToggleTask(task)}
+                    className="taskCheckbox"
+                  />
 
-                {task.text}
-              </div>
+                  <p className="taskContent" onClick={() => handleTaskClick(task.id)}>
+                    {task.text}
+                  </p>
+                </div>
 
-              <div className="d-flex justify-content-center align-items-center gap-3">
-                {task.completed && (
-                  <>
-                    <em
-                      data-tooltip-content={`Completed at: ${task.completedAt}`}
-                      data-tooltip-id="completedTooltip"
-                      data-tooltip-place="top"
-                      className="taskTooltip"
-                    >
-                      <MdOutlineDone className="taskCompletedIcon" />
-                    </em>
+                <div className="d-flex justify-content-center align-items-center gap-3">
+                  {task.completed && (
+                    <>
+                      <em
+                        data-tooltip-content={`Completed at: ${task.completedAt}`}
+                        data-tooltip-id="completedTooltip"
+                        data-tooltip-place="top"
+                        className="taskTooltip"
+                      >
+                        <MdOutlineDone className="taskCompletedIcon" />
+                      </em>
 
-                    <Tooltip id="completedTooltip" />
-                  </>
-                )}
+                      <Tooltip id="completedTooltip" />
+                    </>
+                  )}
 
-                <em
-                  data-tooltip-content={`
+                  <Button onClick={() => handleRemoveTask(task)} className="taskDeleteBtn">
+                    <PiTrashThin />
+                  </Button>
+                </div>
+              </ListGroup.Item>
+
+              <Collapse in={openTasks[task.id]}>
+                <div className={theme === "light" ? "taskCollapse" : "taskCollapseDark"}>
+                  <h6>Description: </h6>
+                  <p>{task.text}</p>
+
+                  <em
+                    data-tooltip-content={`
                   You created this task on: ${task.createdAt}`}
-                  data-tooltip-id="createdTooltip"
-                  data-tooltip-place="top"
-                  className="taskCreateTooltip"
-                >
-                  <MdOutlineInfo className="taskCreatedIcon" />
-                </em>
-                <Tooltip id="createdTooltip" />
-
-                <Button onClick={() => handleRemoveTask(task)} className="taskDeleteBtn">
-                  <PiTrashThin />
-                </Button>
-              </div>
-            </ListGroup.Item>
+                    data-tooltip-id="createdTooltip"
+                    data-tooltip-place="right"
+                    className="taskCreateTooltip"
+                  >
+                    <MdOutlineInfo className="taskCreatedIcon" />
+                  </em>
+                  <Tooltip id="createdTooltip" />
+                </div>
+              </Collapse>
+            </section>
           ))}
         </ListGroup>
 
