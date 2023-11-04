@@ -13,8 +13,6 @@ const Navigation = () => {
     dispatch(toggleTheme());
   };
 
-  const mobileView = window.innerWidth <= 576;
-
   return (
     <section className="navMainWrapper">
       <input
