@@ -8,7 +8,7 @@ A simple task list application built with React and Redux. Manage your tasks wit
 
 ## Demo
 
-Check out the live demo [here](https://yourusername.github.io/tasklist-app).
+Check out the live demo [here](https://tasklist-mlanci.netlify.app/).
 
 ## Features
 
