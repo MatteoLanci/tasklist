@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./tasklist.css";
 
 import { Tooltip } from "react-tooltip";
+import { nanoid } from "nanoid";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, removeTask, toggleTask } from "../../state/Reducers/tasklistSlice";
@@ -47,6 +48,7 @@ const Tasklist = () => {
       <h1>TaskList</h1>
       <Container className="taskContainer">
         <ListGroup
+          key={nanoid()}
           className={`${theme === "light" ? "tasksWrapper" : "tasksWrapperDark"} ${
             tasks.length === 0 ? "justify-content-center" : null
           }`}
@@ -57,6 +59,7 @@ const Tasklist = () => {
             <section
               style={{ marginBottom: "1rem" }}
               className="w-100 d-flex justify-content-center align-items-center flex-column"
+              key={nanoid()}
             >
               <ListGroup.Item
                 key={task.id}
@@ -94,7 +97,10 @@ const Tasklist = () => {
                     </>
                   )}
 
-                  <Button onClick={() => handleRemoveTask(task)} className="taskDeleteBtn">
+                  <Button
+                    onClick={() => handleRemoveTask(task)}
+                    className={theme === "light" ? "taskDeleteBtn" : "taskDeleteBtnDark"}
+                  >
                     <PiTrashThin />
                   </Button>
                 </div>
@@ -129,7 +135,10 @@ const Tasklist = () => {
             onChange={(e) => setNewTask(e.target.value)}
             className={theme === "light" ? "taskInput" : "taskInputDark"}
           />
-          <Button onClick={handleAddTask} className="newTaskBtn">
+          <Button
+            onClick={handleAddTask}
+            className={theme === "light" ? "newTaskBtn" : "newTaskBtnDark"}
+          >
             <MdFormatListBulletedAdd />
           </Button>
         </div>

@@ -90,6 +90,34 @@
   color: #f1f1f1 !important;
 }
 
+.taskCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #f5ebe0;
+  border: 2px solid #fcf8f3;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.taskCheckbox input[type="checkbox"] {
+  opacity: 0;
+}
+.taskCheckbox input[type="checkbox"]:checked + label:before {
+  content: "\2713"; /* Imposta un simbolo di spunta come contenuto quando il checkbox è selezionato */
+  display: block;
+  color: #fa0707 !important; /* Imposta il colore del simbolo di spunta */
+  font-size: 14px !important; /* Imposta la dimensione del simbolo di spunta */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.taskCheckbox input[type="checkbox"]:checked ~ .taskCheckbox:checked {
+  background-color: #ff5733 !important; /* Cambia il colore di sfondo quando il checkbox è selezionato */
+  border: 2px solid #ff5733 !important; /* Cambia il colore del bordo quando il checkbox è selezionato */
+}
+
 .taskContent {
   margin: 0;
   cursor: pointer;
@@ -175,6 +203,23 @@
   box-shadow: inset 0 0 2px #1e2124;
 }
 
+.taskDeleteBtnDark {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  font-size: 1.3rem !important;
+  background: #36393e !important;
+  border: none !important;
+  color: #f0f0f0 !important;
+  transition: 0.3s;
+  width: 40px;
+}
+.taskDeleteBtnDark:hover {
+  background: rgb(42, 44, 47) !important;
+  box-shadow: inset 0 0 2px #f3f4f4;
+}
+
 .taskInput {
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
@@ -205,4 +250,32 @@
 .newTaskBtn:hover {
   background: #fcf8f3 !important;
   border: 1px solid #928b83 !important;
+}
+.newTaskBtn:focus,
+.newTaskBtn:active {
+  box-shadow: none !important;
+  background: #fcf8f3 !important;
+  border: 1px solid #928b83 !important;
+}
+
+.newTaskBtnDark {
+  padding: 0.25rem 0.5rem !important;
+  height: 35px;
+  display: flex !important;
+  justify-content: center !important;
+  background-color: #494c52 !important;
+  border: 1px solid transparent !important;
+  color: #f0f0f0 !important;
+  font-size: 1.5rem !important;
+  transition: 0.3s;
+}
+.newTaskBtnDark:hover {
+  background: rgb(76, 107, 171) !important;
+  border: 1px solid #e7e5e3 !important;
+}
+.newTaskBtnDark:focus,
+.newTaskBtnDark:active {
+  box-shadow: none !important;
+  background: rgb(76, 107, 171) !important;
+  border: 1px solid #e7e5e3 !important;
 }
