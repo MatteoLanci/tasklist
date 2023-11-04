@@ -19,9 +19,9 @@ Check out the live demo [here](https://yourusername.github.io/tasklist-app).
 
 ## Screenshots
 
-|                 Light Theme                 |                Dark Theme                 |
-| :-----------------------------------------: | :---------------------------------------: |
-| ![Light Theme](screenshots/light-theme.png) | ![Dark Theme](screenshots/dark-theme.png) |
+|                       Light Theme                        |                       Dark Theme                       |
+| :------------------------------------------------------: | :----------------------------------------------------: |
+| ![Light Theme](./src/assets/screenshots/light-theme.png) | ![Dark Theme](./src/assets/screenshots/dark-theme.png) |
 
 ## Getting Started
 
@@ -57,7 +57,8 @@ Follow these steps to run the app on your local machine:
 
 ## Contributing
 
-Feel free to open an issue or submit a pull request if you'd like to contribute to this project. We welcome your suggestions and improvements.
+Feel free to open an issue or submit a pull request if you'd like to contribute to this project.
+We welcome your suggestions and improvements.
 
 ## License
 
