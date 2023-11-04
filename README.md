@@ -16,6 +16,7 @@ Check out the live demo [here](https://yourusername.github.io/tasklist-app).
 - Add, remove, and mark tasks as completed ✅
 - Task descriptions and creation date 📅
 - Responsive design for mobile and desktop 📱💻
+- Automatic data persistence with `localStorage` 📁
 
 ## Screenshots
 
@@ -54,6 +55,7 @@ Follow these steps to run the app on your local machine:
 2. Mark tasks as completed by checking the checkbox.
 3. View additional task details by clicking on a task.
 4. Remove tasks by clicking the trash can icon.
+5. Your tasks are automatically saved in `localStorage`, so they persist even after you close the browser or refresh the page.
 
 ## Contributing
 
