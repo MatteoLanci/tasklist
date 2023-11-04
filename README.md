@@ -1,8 +1,8 @@
 # TaskList App
 
-![GitHub](https://img.shields.io/github/license/yourusername/tasklist-app)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/tasklist-app)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/tasklist-app)
+![GitHub](https://img.shields.io/github/license/MatteoLanci/tasklist-app)
+![GitHub last commit](https://img.shields.io/github/last-commit/MatteoLanci/tasklist-app)
+![GitHub issues](https://img.shields.io/github/issues/MatteoLanci/tasklist-app)
 
 A simple task list application built with React and Redux. Manage your tasks with ease.
 
@@ -32,3 +32,35 @@ Follow these steps to run the app on your local machine:
    ```bash
    git clone https://github.com/yourusername/tasklist-app.git
    ```
+
+2. Install the dependencies:
+
+   ```bash
+   cd tasklist-app
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+4. Open your browser and go to `http://localhost:3000` to use the app
+
+## Usage
+
+1. Add a new task by entering a task description in the input field and clicking the "Add" button.
+2. Mark tasks as completed by checking the checkbox.
+3. View additional task details by clicking on a task.
+4. Remove tasks by clicking the trash can icon.
+
+## Contributing
+
+Feel free to open an issue or submit a pull request if you'd like to contribute to this project. We welcome your suggestions and improvements.
+
+## License
+
+This project is licensed under the MIT License.
+
+Enjoy managing your tasks with the TaskList App! 😄
